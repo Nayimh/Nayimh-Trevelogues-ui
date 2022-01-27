@@ -1,0 +1,11 @@
+.blog-h{
+    display: grid;
+    justify-content: center;
+    letter-spacing: 2px;
+    color: #3A2921;
+    background-color: rgb(196, 215, 226);
+    padding: 1rem;
+    
+    /* background-color: #c7faf9; */
+}
+

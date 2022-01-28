@@ -75,7 +75,7 @@ function DashBoardHome(props) {
         :
         <div>
           <Link to={`${url}/myBlogs`}><button className="btn">My Blogs</button></Link> <br /> <br />
-          <NavLink to={`${url}/review`}><button className="btn">Review</button></NavLink> <br /> <br />
+          
           <NavLink to={`${url}/payment`}><button className="btn">Payment</button></NavLink> <br /> <br /> 
 
         </div>

@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Badge, Form, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/UseAuth';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Register = () => {
+
+  useEffect(()=> {
+    Aos.init({
+        once: true,
+    })
+});
 
     const [loginData, setLoginData] = useState({});
     const { registerUser, isLoading, user, authError } = useAuth();
@@ -40,7 +48,7 @@ const Register = () => {
             <h1 className='text-center  logh'>Register</h1>
             <div className='container mt-5'>
                 <div className='row'>
-                    <div className='col-sm-12 col-md-6 col-lg-6 mb-5'>
+                    <div data-aos='zoom-in-up' data-aos-duration='1800' className='col-sm-12 col-md-6 col-lg-6 mb-5'>
               
              
                         {isLoading ? <Spinner animation="border" variant="success" />
@@ -84,7 +92,7 @@ const Register = () => {
                             <Link to="/"><h5>Go Home</h5></Link>
                         </div>
                     </div>
-                    <div className='col-sm-12 col-md-6 col-lg-6'>
+                    <div data-aos='zoom-in-down' data-aos-duration='1800' className='col-sm-12 col-md-6 col-lg-6'>
                         <img className='w-100 rounded shadow' src="https://i.ibb.co/bsZ4G72/img12.jpg" alt="" />
                     </div>
                 </div>

@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './Destination.css'
 import { Card } from 'react-bootstrap';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Destination = () => {
+
+    useEffect(()=> {
+        Aos.init({
+            once: true,
+        })
+    });
 
     const [imgs, setImg] = useState([])
     
@@ -21,7 +29,7 @@ const Destination = () => {
             <div className='row'>
                 {
                     imgs.slice(0, 8).map(img => <div className='col-lg-3 col-md-6 col-sm-12 mb-4' key={img.title}>
-                        <Card>
+                        <Card data-aos='zoom-in-right' data-aos-duration='1400'>
     <Card.Img className='img' variant="top" src={img.img} />
     <Card.Body>
                     <Card.Title className='text'>{ img.location }</Card.Title>

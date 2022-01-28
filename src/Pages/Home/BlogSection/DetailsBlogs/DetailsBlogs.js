@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const DetailsBlogs = ({ loading, blog }) => {
+
+    useEffect(()=> {
+        Aos.init({
+            once: true,
+        })
+    });
     
     if (loading) {
         return <h2>Loading...</h2>
@@ -10,7 +18,7 @@ const DetailsBlogs = ({ loading, blog }) => {
 
     return (
         <div className='col-lg-3 col-md-4 col-sm-12'>
-        <Card className='m-3'>
+        <Card data-aos='zoom-in-up' data-aos-duration='1800' className='m-3'>
 <Card.Img className='blogImg' variant="top" src={blog.img} />
 <Card.Body>
                     <Card.Title>Location : { blog.location }</Card.Title>
@@ -20,7 +28,7 @@ const DetailsBlogs = ({ loading, blog }) => {
 </Card.Body>
                 <Card.Footer>
                     <Link to={`/details/${blog?._id}`}>
-  <button style={{color: 'white', background: '#207FA6',  borderStyle: 'none' , display: 'flex', justifyContent: 'center', borderRadius: '2px'}}>Read more...</button></Link>
+  <button style={{color: 'white', background: '#207FA6',  borderStyle: 'none' , display: 'flex', justifyContent: 'center', borderRadius: '2px', textDecoration: 'none'}}>Read more...</button></Link>
 </Card.Footer>
 </Card>
         

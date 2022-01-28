@@ -1,3 +1,5 @@
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import React, { useEffect, useState } from 'react';
 import { Card, Carousel } from 'react-bootstrap';
 import img1 from '../../../banner/banner1.jpg'
@@ -5,6 +7,12 @@ import img2 from '../../../banner/banner2.jpg'
 import img3 from '../../../banner/banner3.jpg'
 import './Banner.css'
 const Banner = () => {
+
+  useEffect(()=> {
+    Aos.init({
+        once: true,
+    })
+});
 
   const [ imgs, setImg ] = useState([]);
 
@@ -61,7 +69,7 @@ Please tag along!</p>
           <div className='row'>
             {
               imgs.slice(0, 4).map(img => <div className='col-md-6 col-lg-3 col-sm-12' key={img.title}>
-                 <Card>
+                 <Card data-aos='zoom-in-up' data-aos-duration='1500'>
     <Card.Img className='img' variant="top" src={img.img} />
     <Card.Body>
                     <Card.Title className='text'>{ img.location }</Card.Title>

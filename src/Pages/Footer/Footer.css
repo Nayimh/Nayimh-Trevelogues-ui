@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     color: white;
-    background-color: #3A2921;
+    /* background-color: #3A2921; */
+    background-color: #0559cfad;
     place-items: center;
     padding: 2rem 0rem;
     position: relative;
@@ -24,7 +25,8 @@
 .copyr{
     display: grid;
     place-items: center;
-    background-color: #2A2921;
+    background-color: #3153c2;
+    /* background-color: #2A2921; */
     color: white;
     letter-spacing: 2px;
     font-weight: 600;

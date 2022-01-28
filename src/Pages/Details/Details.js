@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './Details.css'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const Details = () => {
+
+    useEffect(()=> {
+        Aos.init({
+            once: true,
+        })
+    });
 
     const { id } = useParams();
 
@@ -24,10 +34,10 @@ const Details = () => {
         <div className='container mt-5 pt-5 heigt'>
             <div className='row'>
                 
-                <div className='col-lg-6 col-md-6 col-sm-6'>
+                <div data-aos='zoom-in-down' data-aos-duration='1800' className='col-lg-6 col-md-6 col-sm-6'>
             <img className='image mb-3' src={details?.img} alt="" />
                 </div>
-                <div className='col-lg-6 col-md-6 col-sm-6 heading'>
+                <div data-aos='zoom-in-up' data-aos-duration='1800' className='col-lg-6 col-md-6 col-sm-6 heading'>
                     <h3> Location : {details?.location}</h3> <br /> 
                     <h4>Title :  {details?.title}</h4> 
                     <h6>Cost : ${ details?.price }</h6>
@@ -35,7 +45,8 @@ const Details = () => {
                     <p>by : { details?.person }</p>
                     <p>{details?.desc}</p>
                     
-                    <button  style={{color: 'white', background: '#207FA6',  borderStyle: 'none' , marginLeft: '15px', borderRadius: '2px'}}>Share your Story</button>
+                    <Link to="/story">
+                    <button  style={{color: 'white', background: '#207FA6',  borderStyle: 'none' , marginLeft: '15px', borderRadius: '2px', textDecoration: 'none'}}>Share your Story</button></Link>
 
                 </div>
                 

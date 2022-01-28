@@ -1,15 +1,15 @@
+
 import React, { useEffect } from 'react';
-import useAuth from '../../hooks/UseAuth';
+
 import { useForm } from "react-hook-form";
-import './Share.css';
+
 import axios from 'axios';
+import useAuth from '../../../hooks/UseAuth';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useHistory } from 'react-router-dom';
 
-
-
-const ShareStories = () => {
+const PostBlogs = () => {
 
     useEffect(()=> {
         Aos.init({
@@ -28,7 +28,7 @@ const ShareStories = () => {
         .then((res) => {
           if (res.data.insertedId) {
               alert("Successfully added a car");
-              history.goBack(-1);
+              history.push('/home');
             reset();
           }
         });
@@ -38,11 +38,6 @@ const ShareStories = () => {
    
   
 
-   
-
-   
-
-
     return (
         <div className='container mt-5 pt-5 mb-5'>
            
@@ -51,7 +46,7 @@ const ShareStories = () => {
                     <img className='image' src="https://i.ibb.co/ZTCsRdZ/img4.jpg" alt="" />
                 </div>
                 <div data-aos='zoom-in-up' data-aos-duration='1800' className='add-new-car col-lg-6 col-md-6 col-sm-6'>
-                <h1 className="mt-3 mb-5 heading">Post Your Blog</h1>
+                <h1 className="mt-3 mb-5">Add a new Blog</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                     <input {...register("img")} placeholder="Image url..."  required/>
                     <input type="text" {...register("location")} placeholder="Location..." required/>
@@ -79,4 +74,4 @@ const ShareStories = () => {
     );
 };
 
-export default ShareStories;
+export default PostBlogs;

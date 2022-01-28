@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './BlogDetails.css'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const BlogDetails = ({ blog, loading }) => {
+  useEffect(()=> {
+    Aos.init({
+        once: true,
+    })
+});
+
     
     if (loading) {
         return <h2>Loading...</h2>
@@ -12,7 +21,7 @@ const BlogDetails = ({ blog, loading }) => {
     return (
        
             <div className='col-lg-3 col-md-4 col-sm-12'>
-            <Card className='m-3'>
+            <Card data-aos='zoom-in-left' data-aos-duration='1700' className='m-3'>
     <Card.Img className='blogImg' variant="top" src={blog.img} />
     <Card.Body>
                         <Card.Title> Location : { blog.location }</Card.Title>
